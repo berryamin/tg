@@ -31,6 +31,9 @@
 #include <string.h>
 #include <pwd.h>
 #include <termios.h>
+#ifdef __QNX__
+#include <termcap.h>
+#endif
 #include <unistd.h>
 #include <assert.h>
 #ifdef __FreeBSD__
