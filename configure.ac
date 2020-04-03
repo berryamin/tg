@@ -48,7 +48,15 @@ AC_ARG_ENABLE(openssl,[  --disable-openssl	  disables OpenSSL, and don't link ag
   ])
 AX_CHECK_ZLIB(, [AC_MSG_ERROR([No zlib found])])
 
-AC_CHECK_LIB([readline], [rl_save_prompt], [ EXTRA_LIBS="${EXTRA_LIBS} -lreadline" ; ], [AC_MSG_ERROR([no libreadline found])])
+AC_CHECK_LIB([readline], [rl_save_prompt], [ EXTRA_LIBS="${EXTRA_LIBS} -lreadline" ; ], [AC_MSG_WARN([no libreadline found])])
+
+AC_ARG_ENABLE(readline,[--enable-readline/--disable-readline],
+  [
+  if test "x$enableval" = "xno" ; then
+    AC_DEFINE([DISABLE_READLINE],[1],[disable libreadline])
+  fi
+  ],[
+  ])
 
 AC_MSG_CHECKING([for libconfig])
 AC_ARG_ENABLE(libconfig,[--enable-libconfig/--disable-libconfig],
