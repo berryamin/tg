@@ -7,12 +7,8 @@ CPPFLAGS=@CPPFLAGS@ @OPENSSL_INCLUDES@
 DEFS=@DEFS@
 COMPILE_FLAGS=${CFLAGS} ${CPFLAGS} ${CPPFLAGS} ${DEFS} -Wall -Wextra -Wno-missing-field-initializers -Wno-deprecated-declarations -fno-strict-aliasing -fno-omit-frame-pointer -ggdb -Wno-unused-parameter -fPIC -Wno-unused-function -Wno-builtin-memcpy-chk-size
 EXTRA_LIBS=@LIBS@ @EXTRA_LIBS@ @OPENSSL_LIBS@
-LOCAL_LDFLAGS=-levent ${EXTRA_LIBS} -lpthread -lutil
+LOCAL_LDFLAGS=-levent ${EXTRA_LIBS} -lpthread
 LINK_FLAGS=${LDFLAGS} ${LOCAL_LDFLAGS}
-
-ifneq (${TARGET_OS}, FreeBSD)
-	LOCAL_LDFLAGS += -ldl
-endif
 
 DEP=dep
 AUTO=auto
