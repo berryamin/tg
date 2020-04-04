@@ -191,8 +191,8 @@ AC_TYPE_UID_T
 AC_C_INLINE
 
 # Checks for library functions.
-AC_FUNC_MALLOC
-AC_FUNC_REALLOC
+#AC_FUNC_MALLOC
+#AC_FUNC_REALLOC
 AC_CHECK_FUNCS([alarm endpwent memset memmove mkdir select socket strdup strndup uname])
 
 AX_GCC_BUILTIN(__builtin_bswap32)
